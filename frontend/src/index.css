@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #07090E;
+  --bg-elev: #0d1018;
+  --border: rgba(255,255,255,0.08);
+}
+
+html, body, #root { height: 100%; }
+body {
+  background: var(--bg);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+.glass {
+  background: rgba(12, 15, 24, 0.7);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6, #f59e0b);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Animated card hover */
+.card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px -16px rgba(245,158,11,0.2);
+}
+
+/* Volume slider — fills left side with gradient */
+input[type="range"].volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+  background: linear-gradient(
+    to right,
+    rgba(245,158,11,0.8) 0%,
+    rgba(236,72,153,0.8) var(--pct, 85%),
+    rgba(255,255,255,0.1) var(--pct, 85%),
+    rgba(255,255,255,0.1) 100%
+  );
+}
+input[type="range"].volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+  transition: box-shadow 0.15s;
+}
+input[type="range"].volume-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(245,158,11,0.3);
+}
+/* Firefox */
+input[type="range"].volume-slider::-moz-range-thumb {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+input[type="range"].volume-slider::-moz-range-progress {
+  background: linear-gradient(90deg, #f59e0b, #ec4899);
+  height: 4px;
+  border-radius: 999px;
+}
+
+/* Generic range fallback (progress bar, etc) */
+input[type="range"]:not(.volume-slider) {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+}
+input[type="range"]:not(.volume-slider)::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Now-playing bar animation */
+@keyframes nowPlaying {
+  from { height: 20%; }
+  to   { height: 90%; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
