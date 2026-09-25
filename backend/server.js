@@ -5,11 +5,28 @@ const { connectDB } = require('./config/db');
 const errorHandler = require('./middleware/error');
 
 const app = express();
-// app.use(cors());
+
+// CORS configuration
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(',').map(o => o.trim())
+  : null;
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: allowedOrigins
+    ? (origin, cb) => {
+        // Allow requests with no origin (mobile apps, curl, etc.)
+        if (!origin || allowedOrigins.includes(origin)) {
+          cb(null, true);
+        } else {
+          console.warn(`[CORS] Blocked origin: ${origin}`);
+          cb(new Error('Not allowed by CORS'));
+        }
+      }
+    : true, // Allow all origins if FRONTEND_URL not set
   credentials: true
 }));
+
+console.log('[CORS] Allowed origins:', allowedOrigins || 'ALL (FRONTEND_URL not set)');
 app.use(express.json({ limit: '1mb' }));
 
 app.use((req, _res, next) => {
