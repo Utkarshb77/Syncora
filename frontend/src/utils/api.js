@@ -1,6 +1,6 @@
 // In development, uses '/api' which Vite proxies to http://localhost:5000/api
-// In production, set VITE_API_URL to the production backend endpoint if deployed separately
-const BASE = import.meta.env.VITE_API_URL || '/api';
+// In production, set VITE_API_URL to the production backend endpoint (e.g. https://xyz.onrender.com/api)
+const BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
 
 let cachedToken = localStorage.getItem('syncora_token') || null;
 
