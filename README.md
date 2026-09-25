@@ -4,7 +4,7 @@
 
 ### *Your mood. Your music. Your story.*
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Syncora-f59e0b?style=for-the-badge&labelColor=0d1117)](https://syncora-rho.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Syncora-f59e0b?style=for-the-badge&labelColor=0d1117)](https://syncora-mu.vercel.app/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&labelColor=0d1117)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&labelColor=0d1117)](https://nodejs.org)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&labelColor=0d1117)](https://www.mongodb.com/atlas)
@@ -288,9 +288,10 @@ Contributions are welcome and appreciated! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Made to enjoy music, have fun, and turn everyday thoughts into memorable journaling moments. 🎵✨
 
 <br/>
+
 <div align="center">
 
 **Made with ❤️ by [Utkarsh](https://github.com/Utkarshb77)**
@@ -302,3 +303,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 <img src="https://img.shields.io/badge/🎵_Feel_the_music._Live_the_mood.-0d1117?style=for-the-badge" />
 
 </div>
+
